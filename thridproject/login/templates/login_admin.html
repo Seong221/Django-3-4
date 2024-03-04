@@ -1,0 +1,20 @@
+{% if error %}
+{{ error }}
+<br>
+<br>
+{% endif %}
+<h1>관리자 로그인</h1>
+
+<form method="POST" action="{% url 'login_admin'%}">
+{% csrf_token %}
+    Username:
+    <br>
+    <input name="admin_name" type="text" value="">
+    <br>
+    Password:
+    <br>
+    <input name="a_password" type="password" value="">
+    <br>
+    <br>
+    <input class="btn btn-primary" type="submit" value="Login">
+</form>

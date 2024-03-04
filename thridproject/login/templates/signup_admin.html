@@ -1,0 +1,20 @@
+<h1>회원가입 페이지</h1>
+
+<h1>관리자 회원가입</h1>
+<!--for admin signup-->
+<form method="POST" action="{% url 'signup_admin'%}">
+    Username:
+    <br>
+    <input name="admin_name" type='text' value=''>
+    <br>
+    Password:
+    <br>
+    <input name="a_password1" type="password" value=''>
+    <br>
+    Confirm Password:
+    <br>
+    <input name='a_password2' type="password" value=''>
+    <br>
+    <input class='btn-btn primary' type="submit" value="signup">
+    
+</form>

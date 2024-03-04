@@ -1,0 +1,28 @@
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+
+    
+</form>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Django App</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'post_list' %}">게시글 목록</a></li>
+        </ul>
+    </nav>
+
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

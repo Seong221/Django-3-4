@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.fcc-btn{
+  background-color:#000000;
+  color:white;
+}
+
+</style>
+<body>
+    {% for post in posts %} <!--form as p 가 아니므로 여기는 폼이 아님-->
+        <h2>게시글 제목: {{ post.title }}</h2>
+        <p style="font-size:20px;font-family:verdana;">게시글 내용: {{ post.content }}</p>
+        <p style="font-size:20px;font-family:verdana;">게시글 작성일: {{ post.created_at }}</p>
+        <p style="font-size:20px;font-family:verdana;">게시글 ID: {{ post.id }}</p>
+        <a target="_blank" class="fcc-btn" href="{% url 'delete_post' post.id %}" class="btn-btn-primary">Delete</a>
+          {% for comment in comments %}
+            {% if comment.post_id == post.id %} <!--만약 게시글 id와 댓글 id가 같다면. 띄어쓰기 안했다고 오류를 띄우네 어우;;;-->
+              <h2>댓글 단 사용자: {{ comment.user }}</h2>
+              <p style="font-size:20px;font-family:verdana;">댓글 내용: {{ comment.content }}</p>
+              <p style="font-size:20px;font-family:verdana;">댓글 작성일: {{ comment.created_at }}</p>
+              <p style="font-size:20px;font-family:verdana;">댓글 ID: {{comment.id}}</p>
+            {% endif %}
+          {% empty %}
+            <p>작성된 댓글이 없습니다.</p>
+          {% endfor %}
+    {% empty %} <!--empty endfor는 해당 for문과 같은 위치-->
+        <p>작성된 게시글이 없습니다.</p>
+    {% endfor %}
+
+    
+</body>
+</html>
